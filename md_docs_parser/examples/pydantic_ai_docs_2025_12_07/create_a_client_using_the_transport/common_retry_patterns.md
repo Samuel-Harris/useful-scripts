@@ -1,0 +1,2 @@
+## Common Retry Patterns
+
