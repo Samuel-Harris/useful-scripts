@@ -1,10 +1,10 @@
 ---
-REMINDER TO DEVELOPER: replace <docs_path> and <example_directory> paths with appropriate paths
+REMINDER TO DEVELOPER: replace <library_name>, <docs_path> and <example_directory> paths with appropriate paths
 ---
 
 # <library_name> documentation
 
-The Pydantic AI documentation is available in a structured format at `<docs_path>`.
+The <library_name> documentation is available in a structured format at `<docs_path>`.
 
 **Structure:**
 

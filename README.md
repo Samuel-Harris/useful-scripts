@@ -1,6 +1,13 @@
 # useful-scripts
 Useful scripts
 
+## Table of Contents
+
+- [useful-scripts](#useful-scripts)
+  - [Table of Contents](#table-of-contents)
+  - [Available Scripts](#available-scripts)
+    - [md\_docs\_parser](#md_docs_parser)
+
 ## Available Scripts
 
 ### md_docs_parser
