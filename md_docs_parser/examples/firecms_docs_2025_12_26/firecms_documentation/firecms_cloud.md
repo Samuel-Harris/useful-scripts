@@ -1,0 +1,129 @@
+### FireCMS Cloud
+
+If you are migrating from previous beta versions of FireCMS Cloud, you will need to make some updates to your project.
+
+#### Dependencies
+
+The main package has been renamed from `firecms` to `@firecms/cloud` since version `3.0.0-beta.4`.
+You can also remove the `@firecms/cli` package, as it is implicitly installed by `@firecms/cloud`.
+
+This is a sample `package.json` with the new config:
+```
+{
+  "name": "my-firecms-project",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5001",
+    "build": "vite build",
+    "serve": "vite preview --port 5001",
+    "deploy": "run-s build && firecms deploy --project=YOUR_PROJECT_ID"
+  },
+  "dependencies": {
+    "@firecms/cloud": "^3.0.0-beta",
+    "firebase": "^12.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@originjs/vite-plugin-federation": "^1.3.5",
+    "@tailwindcss/typography": "^0.5.10",
+    "@types/react": "^18.2.71",
+    "@types/react-dom": "^18.2.22",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.19",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.4.3",
+    "vite": "^5.2.6"
+  }
+}
+```
+
+#### Imports
+
+You need to update your imports to use the new package name. For example, if you have a file that imports `firecms`:
+
+```javascript
+
+```
+
+You need to update it to use the new package name:
+
+```javascript
+
+```
+
+#### Vite configuration
+
+You also need to update your `vite.config.js` file to include the new package name and config:
+
+```javascript
+
+// https://vitejs.dev/config/
+export default defineConfig({
+    esbuild: {
+        logOverride: { "this-is-undefined-in-esm": "silent" }
+    },
+    plugins: [
+        react(),
+        federation({
+            name: "remote_app",
+            filename: "remoteEntry.js",
+            exposes: {
+                "./config": "./src/index"
+            },
+            shared: [
+                "react",
+                "react-dom",
+                "@firecms/cloud",
+                "@firecms/core",
+                "@firecms/firebase",
+                "@firecms/ui",
+                "@firebase/firestore",
+                "@firebase/app",
+                "@firebase/functions",
+                "@firebase/auth",
+                "@firebase/storage",
+                "@firebase/analytics",
+                "@firebase/remote-config",
+                "@firebase/app-check"
+            ]
+        })
+    ],
+    build: {
+        modulePreload: false,
+        target: "ESNEXT",
+        cssCodeSplit: false,
+    }
+})
+```
+
+#### Tailwind CSS
+
+- You need to add the tailwind typography plugin to your project. You can do this by installing the `@tailwindcss/typography` package:
+
+  ```bash
+  yarn add -D @tailwindcss/typography
+  ```
+
+- You should also make sure you are using at least version `3.4.3` of the `tailwindcss` package, and `postcss` version `8.4.38`.
+
+- The preset now comes from the `@firecms/ui` package. You can update your `tailwind.config.cjs` file to include the new preset:
+
+  ```javascript
+  import fireCMSConfig from "@firecms/ui/tailwind.config.js";
+
+  export default {
+      presets: [fireCMSConfig],
+      content: [
+          "./index.html",
+          "./src/**/*.{js,ts,jsx,tsx}",
+          "./node_modules/@firecms/**/src/**/*.{js,ts,jsx,tsx}",
+      ],
+  };
+  ```
+
+
