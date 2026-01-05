@@ -1,4 +1,5 @@
 # useful-scripts
+
 Useful scripts
 
 ## Table of Contents
@@ -6,20 +7,22 @@ Useful scripts
 - [useful-scripts](#useful-scripts)
   - [Table of Contents](#table-of-contents)
   - [Available Scripts](#available-scripts)
-    - [md\_docs\_parser](#md_docs_parser)
+    - [md_docs_parser](#md_docs_parser)
 
 ## Available Scripts
 
 ### md_docs_parser
+
 Convert large markdown documentation files into structured directory hierarchies optimized for LLM consumption.
 
-**Location**: `md_docs_parser/script.py`
+**Location**: `md_docs_parser/main.py`
 
-**Usage**: `uv run script.py <input_file> <output_directory>`
+**Usage**: `uv run main.py <input_file> <output_directory>`
 
 **Description**: This script takes very long markdown documentation files (e.g., comprehensive library docs) and converts them into a structured directory hierarchy that's much more suitable for Large Language Models (LLMs) to parse and navigate.
 
 **Key Features**:
+
 - Converts H1 headers (#) into directories
 - Converts H2 (##) and H3 (###) headers into individual markdown files
 - Generates index.md files for navigation

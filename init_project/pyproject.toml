@@ -1,0 +1,35 @@
+[project]
+name = "init-project"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "jinja2>=3.1.6",
+    "pydantic>=2.12.5",
+    "rich>=14.2.0",
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.5.1",
+    "pyright>=1.1.407",
+    "pytest>=9.0.2",
+    "ruff>=0.14.10",
+]
+
+[tool.uv.workspace]
+members = [
+    "examples/python_example5",
+    "examples/python_example6",
+    "examples/python_example7",
+    "examples/python_example8",
+    "examples/python_example_strict",
+    "examples/python_example_strict2",
+    "examples/python_example_strict3",
+    "examples/python_example_strict4",
+    "examples/python_example",
+]
+
+[tool.ruff]
+exclude = ["templates"]
