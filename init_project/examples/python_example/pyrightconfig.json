@@ -3,5 +3,5 @@
   "exclude": ["**/node_modules", "**/__pycache__", ".venv"],
   "venvPath": ".",
   "venv": ".venv",
-  "typeCheckingMode": "strict"
+  "typeCheckingMode": "standard"
 }
