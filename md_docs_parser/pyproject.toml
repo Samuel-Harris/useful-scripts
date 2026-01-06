@@ -1,7 +1,7 @@
 [project]
-name = "useful-scripts"
+name = "md-docs-parser"
 version = "0.1.0"
-description = "Add your description here"
+description = "Parse markdown documentation into a structured directory hierarchy"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.14"
 dependencies = []

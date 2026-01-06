@@ -1,7 +1,7 @@
 [project]
 name = "init-project"
 version = "0.1.0"
-description = "Add your description here"
+description = "Interactive project scaffolding with uv, ruff, pyright, and pre-commit"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
